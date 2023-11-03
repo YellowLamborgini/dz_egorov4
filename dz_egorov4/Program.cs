@@ -1,17 +1,18 @@
-﻿Console.WriteLine("Введите тысячи");
-int thousands = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите сотни");
-int hundreds = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите десятки");
-int teens = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите еденицы");
-int numbers = Convert.ToInt32(Console.ReadLine());
-if (thousands > 0 & thousands < 10 & hundreds > 0 & hundreds < 10 & teens > 0 & teens < 10 & numbers > 0 & numbers < 10)
+﻿Console.WriteLine("Введите шестизначное число");
+int chislo= Convert.ToInt32(Console.ReadLine());
+
+if (chislo/100000==0| chislo / 1000000 > 0)
 {
-    int chislo = thousands * 1000 + hundreds * 100 + teens * 10 + numbers;
-    Console.WriteLine($"Ваше число:{chislo}");
+    Console.WriteLine("Ошибка");
 }
 else
 {
-    Console.WriteLine("Ошибка");
+    int sotnityshyach = chislo / 100000;
+    int desyatkitysyach = chislo%100000 / 10000;
+    int tisyachi = chislo%10000/1000;
+    int sotni = chislo % 1000 / 100;
+    int desyatki = chislo % 100 / 10;
+    int edenitsy = chislo % 10;
+    int result = edenitsy * 100000 + desyatki * 10000 + sotni * 1000 + tisyachi * 100 + desyatkitysyach * 10 + sotnityshyach;
+    Console.WriteLine($"Результат: {result}");
 }
